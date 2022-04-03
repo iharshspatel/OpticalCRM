@@ -27,7 +27,7 @@ mongoose.connect(process.env.DBPATH, { useNewUrlParser: true }).then(()=>{
 //Routes
 const customer = require("./Routes/customerRoute")
 const order = require("./Routes/orderRoute")
-const client = require("./Routes/clientRoute")
+const client = require("./Routes/ClientRoute")
 app.use("/api", customer);
 app.use("/api", order);
 app.use("/api", client);
