@@ -1,0 +1,26 @@
+.form{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Inter';
+}
+
+.Input{
+    background-color: #678983;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 70%;
+}
+
+.Input::placeholder{
+color: #F0E9D2;
+}
+
+.Button{
+    background-color: #F0E9D2;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #678983;
+}

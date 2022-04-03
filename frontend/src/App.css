@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Roboto&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.headingCustomer {
+  margin: 20px 0 20px 440px;
+}
+
+.heading h1 {
+  margin-bottom: 0%;
+  margin-top: 20px;
+  color: rgb(23, 54, 44);
+
+
+}
+
+.loginform {
+  margin-top: 140px;
+}
+
+.submitbtn {
+  padding: 0;
+  margin-top: 40px;
+  width: 100px;
+  background-color: rgb(103, 137, 131);
+
+}
+
+.search {
+
+  padding-bottom: 20px;
+}
+
+.search ::placeholder {
+  color: rgb(248, 237, 223);
+}
+
+.search input {
+  background-color: rgb(103, 137, 131);
+
+  color: #fff;
+  margin: 0 30%;
+  padding-left: 4%;
+  border: none;
+  height: 43px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+/* .search{
+  position: relative;
+  right: 9%;
+  font-weight: 3000;
+  color: rgb(23, 54, 44);
+} */
+.customerCard {
+  height: 10%;
+  display: block;
+  /* flex-direction: row; */
+  text-decoration: none;
+  margin: 2vmax;
+  background-color: rgb(240, 233, 210);
+  color: rgb(51, 54, 69);
+  /* text-align: center; */
+  border-radius: 20px;
+  /* border: none; */
+}
+
+.customerCard h3 {
+  margin: 20px;
+  display: inline-block;
+}
+
+.customerCard h4 {
+  display: block;
+  text-align: right;
+  /* margin: 20px; */
+}
+
+.customerCard button {
+  margin: 20px auto 20px 8%;
+}
+
+.customerCard p {
+  margin: 0 20px;
+}
+
+.userform {
+  padding-bottom: 20px;
+}
+
+.userform label {
+  position: relative;
+  right: 9%;
+  font-weight: 3000;
+  color: rgb(23, 54, 44);
+}
+
+.userform input {
+  background-color: rgb(245, 233, 202);
+  padding-left: 4%;
+  border: none;
+  height: 30px;
+  width: 30%;
+  border-radius: 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.fontawesome {
+  margin-left: 80%;
+}
+
+i {
+
+  padding: 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Add {
+  background-color: rgb(103, 137, 131);
+  min-height: 50px;
+  width: 70px;
+  border-radius: 50%;
+  border-color: transparent;
+  font-size: 50px;
+  padding-bottom: 2px;
+  color: #fff;
+  display: inline;
+  border: none;
+  margin-left: 80%;
+  position: relative;
+  top: 30px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

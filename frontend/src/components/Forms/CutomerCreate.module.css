@@ -1,0 +1,35 @@
+.Container{
+    /* border: 2px solid green; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input{
+   background-color: #F0E9D2;
+   border: none;
+   padding: 10px 20px;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.button{
+    background-color: #678983;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color:#F0E9D2;
+    margin-top: 10px;
+    margin-left: 50px;
+}

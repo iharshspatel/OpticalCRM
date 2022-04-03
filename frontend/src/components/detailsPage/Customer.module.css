@@ -1,0 +1,72 @@
+.customerCard{
+   font-family: 'Inter';
+   padding: 20px;
+   background-color: #F0E9D2;
+   /* border: 0.5px solid black; */
+   margin: 20px 10px;
+   border-radius: 10px;
+}
+
+.Index{
+    padding-top: 5px;
+}
+
+.name{
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.Info{
+    /* border: 0.5px solid green; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.SubInfo{
+    /* border: 0.5px solid yellow; */
+    display: flex;
+}
+
+.PerInfo{
+    margin-left: 20px;
+}
+
+.buttonGroup{
+    /* border: 0.5px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.button{
+    min-width: 100px;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.Icons{
+    /* border: 0.5px solid tan; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #2d3937;
+}
+
+.LastRow{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 20px 10px;
+    align-items: center;
+}
+
+.Newbutton{
+    background-color: #678983;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #F0E9D2;
+}
