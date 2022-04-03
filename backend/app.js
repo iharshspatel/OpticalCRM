@@ -43,8 +43,8 @@ process.on("uncaughtException", (err) => {
   console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
 });
-const server = app.listen(4000, function (Req, res) {
-  console.log("server started at port 4000.")
+const server = app.listen(process.env.PORT, function (Req, res) {
+  console.log(`server started at port ${process.env.PORT}.`)
 })
 // Unhandled Promise Rejection
 process.on("unhandledRejection", (err) => {
