@@ -1,7 +1,7 @@
 const res = require("express/lib/response");
 
-const sendToken = (user, statusCode, res) => {
-    const token = user.getJWTToken();
+const sendToken = (client, statusCode, res) => {
+    const token = client.getJWTToken();
     const options = {
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
@@ -11,9 +11,7 @@ const sendToken = (user, statusCode, res) => {
     };
     // console.log(Date.now())
     res.status(statusCode).cookie("token", token, options).json({
-        success: true,
-        user,
-        token
+        client,
     });
 };
 module.exports = sendToken;

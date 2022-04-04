@@ -22,11 +22,12 @@ export const login = (email, password) => async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
         const { data } = await axios.post(`/api/clients/login`, { email, password }, config);
 
-        dispatch({ type: CLIENT_SUCCESS, payload: data })
+        dispatch({ type: CLIENT_SUCCESS, payload: data.client })
     } catch (error) {
+       
         dispatch({
-            type: CLIENT_FAIL
-            , payload: error.response.data.message
+            type: CLIENT_FAIL,
+             payload: error
         })
     }
 

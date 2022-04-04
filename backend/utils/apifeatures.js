@@ -20,7 +20,7 @@ class ApiFeatures {
         
         } :(this.queryStr.id ? {client_id:this.queryStr.id} : {})
         // console.log({...keyword});
-        this.query = this.query.find({...keyword})
+        this.query = this.query.find({...keyword}).sort({_id: -1 })
     //    console.log(this.query)
         return this;
         

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Navigate, Redirect, useNavigate } from 'react-router-dom'
 import Styles from './Home.module.css'
 import Heading from "./Heading"
@@ -6,9 +6,12 @@ import Heading from "./Heading"
 import { Link } from "react-router-dom";
 import store from "../../store";
 import { useDispatch, useSelector } from "react-redux"
+import { useAlert } from "react-alert";
 import { clearErrors, loadUser, login } from "../../actions/clientAction"
 import "../../App.css";
 function Home({ history }) {
+
+    const alert = useAlert();
     // const navigate = useNavigate()
     let initialValue = {
         email: '',
@@ -39,47 +42,59 @@ function Home({ history }) {
 
     const dispatch = useDispatch();
     
-    const { client, isAuthenticated } = useSelector(state => state.client);
+    const {client, isAuthenticated,error } = useSelector(state => state.client);
 
-    const handleClick = () => {
-        console.log(val);
+    useEffect(()=>{
+        if(error){
+            alert.error("Invalid Email or Password")
+            dispatch(clearErrors())
+        }
+        if((isAuthenticated===true && client.role === "admin")){
+            history.push("/admin")
+        }
+        if( (isAuthenticated===true && client.role === "user")){
+            history.push("/customer")
+        }
+    },[isAuthenticated,history,client, error,dispatch,clearErrors])
+
+    const handleClick = (e) => {
+
+        e.preventDefault();
+       
         if (!val.email || !val.password) {
             return <Redirect to={'/'} />
             // console.log("no")
         }
 
         dispatch(login(val.email, val.password));
+        if(isAuthenticated){
+            alert.success("Login Successful")
+        }
 
-        history.push("/customer")
-
-        // window.location.reload();
-
-        // return <Redirect to="/customer" />
     }
     
-    return <>
+    return (<>
         <div className={Styles.BigContainer}>
             <Heading />
-            <div className={Styles.Container}>
-                <div className={Styles.SubContainer}>
-                    {/* <label>Username</label> */}
-                    <br />
+            <form className={Styles.Container}>
+       
+
                     <input className={Styles.Input} type="email" placeholder="Email" name="email" value={val.email} onChange={handleChange} />
-                </div>
-                <div className={Styles.SubContainer}>
-                    {/* <label>Password</label> */}
-                    <br />
-                    <input className={Styles.Input} type="password" placeholder="Password" name="password" value={val.password} onChange={handleChange} />
-                </div>
-                {/* <Link to='/customer'> */}
-                <div >
-                    <button onClick={handleClick} className="submitbtn btn btn-success" type="submit">Submit</button>
-                </div>
+                  
+              
+                    <input className={Styles.Input} type="password" autoComplete="true" placeholder="Password" name="password" value={val.password} onChange={handleChange} />
+              
+
+               
+                    <button  onClick={handleClick} className="submitbtn btn btn-success" type="submit">Submit</button>
+              
+            
+            </form>
                 {/* </Link> */}
 
             </div>
-        </div>
-    </>
+    
+    </>)
 }
 
 export default Home;

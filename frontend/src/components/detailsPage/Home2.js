@@ -9,9 +9,11 @@ import { useAlert } from "react-alert";
 import { loadUser, logout } from "../../actions/clientAction"
 import Pagination from 'react-js-pagination'
 const Home2 = ({ history, match }) => {
+    
     const dispatch = useDispatch();
     const alert = useAlert();
     const [currentPage, setCurrentPage] = useState(1)
+    
     const { client, loading, isAuthenticated } = useSelector((state) => state.client);
 
     const keyword = match.params.keyword
@@ -29,12 +31,12 @@ const Home2 = ({ history, match }) => {
 
     useEffect(()=>{
         console.log(customersCount)
-    },[customersCount])
+    },[customersCount, customers])
     
     
     useEffect(() => {
         const clientid = client._id ? client._id : client.user._id
-        console.log(clientid)
+        
         dispatch(getCustomer(keyword,currentPage, clientid));
 
         if (isAuthenticated === false) {
@@ -67,8 +69,9 @@ const Home2 = ({ history, match }) => {
                 Customer Details
             </h1>
             </div>
-            <div>
+            <div className={Styles.cards}>
                 <Search history={history} />
+               
                 {customers && customers.map((customer,index) => <Customer index={index} id={customer._id} key={customer._id} customer={customer} history={history} />)}
             </div>
 

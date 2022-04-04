@@ -9,6 +9,11 @@
 .Container{
     margin-top: 100px;
     /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .Input{
@@ -16,4 +21,5 @@
     background-color: #F0E9D2;
     padding: 10px 20px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }

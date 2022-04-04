@@ -16,9 +16,11 @@ app.use(express.static("public"));
 app.use(errorMiddleware);
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+
 if(process.env.NODE_ENV!=="PRODUCTION"){
   dotenv.config({ path: "backend/config/config.env" });
 }
+const port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.DBPATH, { useNewUrlParser: true }).then(()=>{
   console.log(`Database is Connected at ${process.env.DBPATH} `)

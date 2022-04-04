@@ -55,14 +55,7 @@ const OrderCreate = ({ history }) => {
     function handleClick(e) {
         e.preventDefault();
         dispatch(createOrder(val, id));
-        // if(error){
-        //     alert.error(error)
-        // }else{
-        //     alert.success("Order Created")
-        // }
-
-
-        history.push("/customer");
+        history.goBack();
     }
     return (
         <div className={Styles.Container}>
@@ -71,12 +64,12 @@ const OrderCreate = ({ history }) => {
             <input placeholder='frame_type' name="frame_type" className={Styles.input} value={val.frame_type} onChange={handleChange} />
             <input placeholder='amount' name="amount" className={Styles.input} value={val.amount} onChange={handleChange} />
             <input placeholder='remarks' name="remarks" className={Styles.input} value={val.remarks} onChange={handleChange} />
-            <input placeholder='re_sph' name="re_sph" className={Styles.input} value={val.re_sph} onChange={handleChange} />
-            <input placeholder='re_cyl' name="re_cyl" className={Styles.input} value={val.re_cyl} onChange={handleChange} />
-            <input placeholder='re_axis' name="re_axis" className={Styles.input} value={val.re_axis} onChange={handleChange} />
-            <input placeholder='le_sph' name="le_sph" className={Styles.input} value={val.le_sph} onChange={handleChange} />
-            <input placeholder='le_cyl' name="le_cyl" className={Styles.input} value={val.le_cyl} onChange={handleChange} />
-            <input placeholder='le_axis' name="le_axis" className={Styles.input} value={val.le_axis} onChange={handleChange} />
+            <input placeholder='re_sph' type='number' name="re_sph" className={Styles.input} value={val.re_sph} onChange={handleChange} />
+            <input placeholder='re_cyl' type='number' name="re_cyl" className={Styles.input} value={val.re_cyl} onChange={handleChange} />
+            <input placeholder='re_axis' type='number' name="re_axis" className={Styles.input} value={val.re_axis} onChange={handleChange} />
+            <input placeholder='le_sph' type='number' name="le_sph" className={Styles.input} value={val.le_sph} onChange={handleChange} />
+            <input placeholder='le_cyl' type='number' name="le_cyl" className={Styles.input} value={val.le_cyl} onChange={handleChange} />
+            <input placeholder='le_axis' type='number' name="le_axis" className={Styles.input} value={val.le_axis} onChange={handleChange} />
             <button onClick={handleClick} className={Styles.button} type="submit">Submit</button>
         </form></div>
     )

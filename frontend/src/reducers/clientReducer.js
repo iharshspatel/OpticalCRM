@@ -8,7 +8,9 @@ import {
     LOAD_USER_SUCCESS,
     ALL_CLIENT_FAIL,
     ALL_CLIENT_REQUEST,
-    ALL_CLIENT_SUCCESS
+    ALL_CLIENT_SUCCESS,
+    LOGOUT_SUCCESS,
+    LOGOUT_FAIL,
 } from "../constants/clientConstants";
 export const clientsReducer = (state = { clients: {} }, action) => {
     switch (action.type) {
@@ -72,6 +74,12 @@ export const clientReducer = (state = { client: {} }, action) => {
                 client: null,
                 isAuthenticated: false,
                 error: action.payload
+            }
+        case LOGOUT_SUCCESS:
+            return{
+                loading:false,
+                isAuthenticated:false,
+                client:null
             }
         default:
             return state;
