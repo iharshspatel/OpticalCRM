@@ -27,7 +27,7 @@ exports.getAllCustomers = catchAsyncError(async (req, res) => {
     let coustomers = await apiFeatures.query
     // console.log(coustomers)
     let filteredCoustmersCount = coustomers.length
-    const customerCount = coustomers.length
+    const customerCount = coustomers.length<2 ? 2 : coustomers.length
     apiFeatures.pagination(resultPerPage)
 
     coustomers =  await apiFeatures.query.clone();
