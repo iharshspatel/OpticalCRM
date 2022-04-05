@@ -34,7 +34,7 @@ export const login = (email, password) => async (dispatch) => {
 }
 export const createClient = (client) => async (dispatch) => {
     try {
-        console.log(client)
+        console.log(`Client : ${client}`)
         dispatch({ type: ADD_CLIENT_REQUEST });
 
         const config = {

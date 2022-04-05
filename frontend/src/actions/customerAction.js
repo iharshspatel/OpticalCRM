@@ -53,7 +53,7 @@ export const createCustomer = (customer) => async (dispatch) => {
 
         dispatch({ type: ADD_CUSTOMER_SUCCESS, payload: data });
     } catch (error) {
-        console.log(error)
+        console.log('error')
         dispatch({
             type: ADD_CUSTOMER_FAIL,
             payload: error,

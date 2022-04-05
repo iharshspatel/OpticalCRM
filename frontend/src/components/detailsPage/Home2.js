@@ -30,7 +30,7 @@ const Home2 = ({ history, match }) => {
 
 
     useEffect(()=>{
-        console.log(customersCount)
+        console.log(`customersCount`)
     },[customersCount, customers])
     
     
@@ -62,7 +62,7 @@ const Home2 = ({ history, match }) => {
         history.push("/customers/new")
     }
     return <>
-        {loading === false && (
+        {customersCount && (
         <div className={Styles.mainContainer}>
             <div className="">
             <h1 className={Styles.header}>

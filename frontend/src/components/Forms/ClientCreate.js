@@ -13,6 +13,7 @@ const ClientCreate = ({ history }) => {
             history.push("/");
         }
     }, [history, isAuthenticated]);
+
     let initialValue = {
 
         name: "",
@@ -33,6 +34,8 @@ const ClientCreate = ({ history }) => {
 
     function handleClick(e) {
         e.preventDefault();
+        console.log(`client`)
+        console.log(val)
         dispatch(createClient(val));
         history.push("/admin");
     }
