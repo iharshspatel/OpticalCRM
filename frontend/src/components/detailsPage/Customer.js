@@ -14,8 +14,8 @@ const orders = customer.orders
 const tel = `tel:${num}`;
 const whatsapp = `https://wa.me/+91${num}`;
 const handleClick = () => {
-    console.log("clicked");
-    console.log(customer._id)
+    // console.log("clicked");
+    // console.log(customer._id)
     history.push('/customers/orders/new/' + customer._id)
 }
 

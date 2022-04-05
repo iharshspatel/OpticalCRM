@@ -5,7 +5,7 @@ import { clearErrors, createOrder, getCustomer } from "../../actions/customerAct
 import { updateProfile } from "../../actions/customerAction"
 import { useAlert } from 'react-alert';
 
-const OrderCreate = ({ history }) => {
+const OrderCreate = ({ history,match }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
 
@@ -15,7 +15,8 @@ const OrderCreate = ({ history }) => {
         (state) => state.customers
     );
     const str = history.location.pathname;
-    const id = str.substring(str.length - 24);
+    // const id = str.substring(str.length - 24);
+    const id = match.params.id
     
     useEffect(()=>{
         console.log(error)
@@ -54,8 +55,8 @@ const OrderCreate = ({ history }) => {
 
     function handleClick(e) {
         e.preventDefault();
-        dispatch(createOrder(val, id));
-        history.goBack();
+        dispatch(createOrder(val,id));
+        history.push("/customer");
     }
     return (
         <div className={Styles.Container}>
