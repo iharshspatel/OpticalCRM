@@ -11,7 +11,7 @@ const HomeAdmin = ({ history,match}) => {
 
     const dispatch = useDispatch();
     const [keyword, setKeyword] = useState();
-    const [currentPage, setCurrentPage] = useState(2)
+    const [currentPage, setCurrentPage] = useState(1)
     const { client, isAuthenticated } = useSelector((state) => state.client);
     const { loading, clients,clientCount, resultPerPage  } = useSelector((actions) => actions.clients);
     if (!client) {

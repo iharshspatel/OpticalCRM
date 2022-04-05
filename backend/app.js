@@ -22,6 +22,7 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 }
 const port = process.env.PORT || 3000;
 
+
 mongoose.connect(process.env.DBPATH, { useNewUrlParser: true }).then(()=>{
   console.log(`Database is Connected at ${process.env.DBPATH} `)
 });
@@ -45,6 +46,9 @@ process.on("uncaughtException", (err) => {
   console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
 });
+
+
+
 const server = app.listen(process.env.PORT, function (Req, res) {
   console.log(`server started at port ${process.env.PORT}.`)
 })

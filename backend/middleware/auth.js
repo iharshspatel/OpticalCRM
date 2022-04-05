@@ -10,6 +10,7 @@ exports.isAuthenticatedClient = catchAsyncError(async (req, res, next) => {
     }
     const decodedData = jwt.verify(token, process.env.JWT_SECRET);
     req.client = await Client.findById(decodedData.id);
+    // console.log(req.client)
     next();
 });
 

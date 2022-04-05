@@ -8,16 +8,25 @@ const sendToken = require("../utils/jwtToken");
 const bcrypt = require("bcryptjs");
 const ApiFeatures = require("../utils/apifeatures");
 exports.registerClient = catchAsyncError(async (req, res, next) => {
-    const { name, email, password, username } = req.body;
+    const {name, address, date,contactno,email,username,password,remarks} = req.body;
     const client = await Client.create({
         name,
+        address,
+        date,
+        contactno,
         email,
+        username,
         password,
-        username
+        remarks  
     })
-    console.log(req.body);
+    // console.log(client);
     // console.log("Controller")
-    sendToken(client, 200, res);
+    // sendToken(client, 200, res);
+
+    res.status(200).json({
+        success: true,
+        client
+    })
 
 });
 exports.getClient = catchAsyncError(async (req, res) => {
