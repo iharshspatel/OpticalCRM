@@ -9,8 +9,9 @@ const ApiFeatures = require("../utils/apifeatures");
 
 exports.createCustomer = catchAsyncError(async (req, res, next) => {
     req.body.client_id = req.client.id;
+    console.log(req.body)
     const customer = await Customer.create(req.body);
-
+    console.log(customer);
     res.status(200).json({
         success: true,
         customer
@@ -20,13 +21,13 @@ exports.createCustomer = catchAsyncError(async (req, res, next) => {
 });
 exports.getAllCustomers = catchAsyncError(async (req, res) => {
     const resultPerPage = 2
-    const customerCount = await Customer.countDocuments();
+    // const customerCount = await Customer.countDocuments();
     const apiFeatures = new ApiFeatures(Customer.find(), req.query).search()
 
     let coustomers = await apiFeatures.query
     // console.log(coustomers)
     let filteredCoustmersCount = coustomers.length
-
+    const customerCount = coustomers.length
     apiFeatures.pagination(resultPerPage)
 
     coustomers =  await apiFeatures.query.clone();

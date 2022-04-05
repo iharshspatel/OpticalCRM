@@ -103,13 +103,14 @@ exports.loginClient = catchAsyncError(async (req, res, next) => {
 )
 exports.getAllClients = catchAsyncError(async (req, res) => {
     const resultPerPage = 2
-    const clientCount = await Client.countDocuments()
+    // const clientCount = await Client.countDocuments()
 
     const apiFeatures = new ApiFeatures(Client.find(), req.query).search()
 
     let clients = await apiFeatures.query
 
     let filteredClientCount = clients.length
+    const clientCount = clients.length
 
     apiFeatures.pagination(resultPerPage);
 

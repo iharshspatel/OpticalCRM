@@ -17,6 +17,7 @@ const CutomerCreate = ({ history }) => {
 useEffect(()=>{
   if(error){
     alert.error("Error");
+    dispatch(clearErrors())
   }
 })
   useEffect(() => {
