@@ -5,3 +5,22 @@
     font-family: "Inter";
     font-weight: 600;
 }
+
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    border: none;
+    background-color:#678983 ;
+    color:white ;
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}

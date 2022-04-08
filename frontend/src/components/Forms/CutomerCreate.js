@@ -35,6 +35,8 @@ useEffect(()=>{
     client_id:clientid,
     name: "",
     address: "",
+    drname:"",
+    draddress:"",
     date: "",
     contactno: "",
     email: "",
@@ -62,9 +64,11 @@ function handleClick (e) {
       <form className={Styles.Form}>
       <input placeholder='Name' required name="name" className={Styles.input} value={val.name} onChange={handleChange} />
       <input placeholder='Address' required name="address" className={Styles.input} value={val.address} onChange={handleChange} />
-      <input placeholder='Date' required type='date' name="date" className={Styles.input} value={val.date} onChange={handleChange} />
+      <input placeholder='Docter Name' required name="drname" className={Styles.input} value={val.drname} onChange={handleChange} />
+      <input placeholder='Docter Adress' required name="draddress" className={Styles.input} value={val.draddress} onChange={handleChange} />
+      <input placeholder='Date' required type='date'  name="date" className={Styles.input} value={val.date} onChange={handleChange} />
       <input placeholder='Contact no.' required type='tel' name="contactno" className={Styles.input} value={val.contactno} onChange={handleChange} />
-      <input placeholder='Email' required type='email' name="email" className={Styles.input} value={val.email} onChange={handleChange} />
+      <input placeholder='Email' type='email' name="email" className={Styles.input} value={val.email} onChange={handleChange} />
       <button required className={Styles.button} type="submit">Submit</button>
     </form>
     </div>:" "

@@ -1,19 +1,19 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
-
+const errorMiddleware = require('./middleware/error')
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const app = express();
-const errorMiddleware = require("./middleware/error")
+
 const cors = require('cors');
 const path = require("path")
 app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
-app.use(errorMiddleware);
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -34,7 +34,7 @@ const client = require("./Routes/ClientRoute")
 app.use("/api", customer);
 app.use("/api", order);
 app.use("/api", client);
-
+app.use(errorMiddleware);
 app.use(express.static(path.join(__dirname,"../frontend/build")))
 app.get("*",(req,res)=>{
   res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"))

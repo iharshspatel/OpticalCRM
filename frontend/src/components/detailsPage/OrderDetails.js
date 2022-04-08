@@ -1,16 +1,37 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import axios from 'axios'
 import { getOrderDetails } from '../../actions/orderDetailsAction'
+import Loading from '../Layout/Loading'
 import Styles from './OrderDetails.module.css'
-
-const OrderDetails = ({match}) => {
+import { useAlert } from 'react-alert'
+const OrderDetails = ({history,match}) => {
 
     const dispatch = useDispatch();
+    const alert = useAlert();
     const {loading, orderdetails} = useSelector(state => state.orderdetail)
 
     useEffect(()=>{
         dispatch(getOrderDetails(match.params.id))
     },[])
+
+
+    const updateOrderHadler = async() =>{
+      history.push(`/customers/orders/update/${match.params.id}`)
+    }
+
+    const deleteOrderHandler = async() => {
+      try{
+      const {data} = await axios.delete(`/api/orders/${match.params.id}`, )
+      console.log(data)
+      alert.success("Order Deleted");
+      history.push('/customer')
+      }
+      catch(error){
+        console.log(error)
+      alert.error("Order Delete Failed")
+      }
+    }
   return (
       <>
       {loading===false? <>
@@ -26,7 +47,13 @@ const OrderDetails = ({match}) => {
          <p className={Styles.item} >LE_AXIS   :{orderdetails.le_axis}</p>
          <p className={Styles.item} >LE_CYL    :{orderdetails.le_cyl}</p>
         </div>
-         </>:"waiting"
+
+        <div className={Styles.buttonContainer}>
+        <button className={Styles.button} onClick={updateOrderHadler}>Update Order</button>
+        
+        <button className={Styles.button} onClick={deleteOrderHandler}>Delete</button>
+        </div>
+         </>:<Loading/>
       }
         
     </>

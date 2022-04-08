@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import "../../App.css";
 import Styles from './Customer.module.css'
 import { Redirect, BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -8,9 +8,11 @@ const current = new Date();
 const month = current.toLocaleString('default', { month: 'long' });
 const date = `${current.getDate()} ${month} ${current.getFullYear()}`;
 const Customer = ({index,customer, history }) => {
+
 const dispatch = useDispatch();
+
 const num = customer.contactno;
-const orders = customer.orders
+const orders = customer.orders;
 const tel = `tel:${num}`;
 const whatsapp = `https://wa.me/+91${num}`;
 const handleClick = () => {
@@ -42,7 +44,7 @@ const orderHandler = (or) => {
 
        <div className={Styles.LastRow}>
         <div className={Styles.Icons}>
-            <a> <i className="fa-solid  fa-pencil"></i></a>
+            <a href={`customer/update/${customer._id}`}> <i className="fa-solid  fa-pencil"></i></a>
             <a href={whatsapp}><i className="fa-brands   fa-whatsapp-square"></i></a>
             <a href={tel}><i className="fa-solid  fa-phone"></i></a>
         </div>

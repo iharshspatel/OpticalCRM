@@ -15,7 +15,7 @@ const Home2 = ({ history, match }) => {
     const [currentPage, setCurrentPage] = useState(1)
     
     const { client, loading, isAuthenticated } = useSelector((state) => state.client);
-
+    
     const keyword = match.params.keyword
 
     const setCurrentPageNo = (e) => {
@@ -28,18 +28,12 @@ const Home2 = ({ history, match }) => {
         (state) => state.customers
     );
 
-
-    useEffect(()=>{
-        console.log(`customersCount`)
-    },[customersCount, customers])
-    
-    
     useEffect(() => {
         const clientid = client._id ? client._id : client.user._id
         
         dispatch(getCustomer(keyword,currentPage, clientid));
 
-        if (isAuthenticated === false) {
+        if (loading === false && isAuthenticated === false) {
             console.log("home 2 returning")
             history.push("/");
         }
@@ -49,11 +43,13 @@ const Home2 = ({ history, match }) => {
             history.push("/admin");
         }
         
-    }, [history, isAuthenticated, keyword, currentPage, client.id,dispatch]);
+    }, [history, isAuthenticated, keyword, currentPage,customersCount ,client.id,dispatch]);
+   
+    
     if (!client) {
         window.location.reload();
-
     }
+
     function handleClick() {
         dispatch(logout());
         history.push("/");
@@ -61,7 +57,8 @@ const Home2 = ({ history, match }) => {
     function handleAdd() {
         history.push("/customers/new")
     }
-    return <>
+    return loading ? "true" :( 
+    <>
         {customersCount && (
         <div className={Styles.mainContainer}>
             <div className="">
@@ -71,8 +68,7 @@ const Home2 = ({ history, match }) => {
             </div>
             <div className={Styles.cards}>
                 <Search history={history} />
-               
-                {customers && customers.map((customer,index) => <Customer index={index} id={customer._id} key={customer._id} customer={customer} history={history} />)}
+                {customers && customers.map((customer,index) => <Customer index={(customersCount-1) - ((currentPage-1)*resultPerPage+index)} id={customer._id} key={customer._id} customer={customer} history={history} />)}
             </div>
 
 
@@ -102,7 +98,7 @@ const Home2 = ({ history, match }) => {
         </div>
         )
         }
-    </>
+    </>)
 }
 export default Home2;
 

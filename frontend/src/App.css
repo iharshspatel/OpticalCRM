@@ -172,3 +172,8 @@ a {
     transform: rotate(360deg);
   }
 }
+
+input[type='date']:after {
+  color: #7a7a7a;
+  content: attr(placeholder);
+}

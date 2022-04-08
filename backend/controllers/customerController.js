@@ -9,16 +9,28 @@ const ApiFeatures = require("../utils/apifeatures");
 
 exports.createCustomer = catchAsyncError(async (req, res, next) => {
     req.body.client_id = req.client.id;
-    console.log(req.body)
+    // console.log(req.body)
     const customer = await Customer.create(req.body);
     console.log(customer);
     res.status(200).json({
         success: true,
         customer
     })
-
-
 });
+
+exports.getCustomer= catchAsyncError(async (req,res,next) => {
+
+    console.log(req.params.id);
+   
+    const customer = await Customer.findById({_id:req.params.id});
+
+    console.log(customer);
+
+    res.status(201).json({
+        success:true,
+        customer
+    })
+})
 exports.getAllCustomers = catchAsyncError(async (req, res) => {
     const resultPerPage = 2
     // const customerCount = await Customer.countDocuments();

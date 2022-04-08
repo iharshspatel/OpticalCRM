@@ -44,7 +44,7 @@ exports.getClient = catchAsyncError(async (req, res) => {
 // get all the customers of a client
 exports.getCustomersOfClient = catchAsyncError(async (req, res, next) => {
     const client_id = req.params.id;
-    console.log(client_id);
+    // console.log(client_id);
     const customers = await Customer.find({ client_id });
     if (!customers) {
         return next(new ErrorHandler("No customers found", 400));

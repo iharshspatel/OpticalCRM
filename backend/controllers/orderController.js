@@ -1,5 +1,5 @@
 const Order=require("../Models/orderModel")
-
+const Customer = require("../Models/customerModel")
 const ErrorHandler=require("../utils/errorHandler")
 const catchAsyncError=require("../middleware/catchAsyncError")
 exports.createOrder=catchAsyncError( async (req,res,next)=>{
@@ -35,10 +35,17 @@ exports.updateOrder=catchAsyncError( async (req,res,next)=>{
 });
 exports.deleteOrder=catchAsyncError( async(req,res,next)=>{
     const order=await Order.findById(req.params.id);
+    console.log(order.id);
+    // console.log(req.body.clientid)
     if(!order){
         return next(new ErrorHandler("Order not found",404));
     }
     await order.remove()
+    // const customer = await Customer.find({ "orders.Order":order.id})
+    const data = await Customer.findOneAndUpdate({ "orders.Order":order.id }, { $pull: { orders:{ Order:order._id } }})
+    // const customer = await Customer.find({ "orders.Order":order.id})
+    console.log(data);
+    data.save();
     res.status(200).json({
         success:true,
         message:"order deleted"

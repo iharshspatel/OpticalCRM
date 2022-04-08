@@ -15,9 +15,10 @@ const customerSchema = new mongoose.Schema({
     address: String,
     date: Date,
     contactno: Number,
+    drname:String,
+    draddress:String,
     email: {
         type: String,
-        required: [true, 'Email address is required'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     orders: [{
