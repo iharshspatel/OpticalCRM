@@ -24,9 +24,15 @@ let initialValue =
     re_sph: orderdetails.re_sph,
     re_cyl: orderdetails.re_cyl,
     re_axis: orderdetails.re_axis,
+    re_near_axis: orderdetails.re_near_axis,
+    re_near_sph: orderdetails.re_near_sph,
+    re_near_cyl: orderdetails.re_near_cyl,
     le_sph: orderdetails.le_sph,
     le_cyl: orderdetails.le_cyl,
-    le_axis: orderdetails.le_axis} : ""
+    le_axis: orderdetails.le_axis,
+    le_near_sph: orderdetails.le_near_sph,
+    le_near_cyl: orderdetails.le_near_cyl,
+    le_near_axis: orderdetails.le_near_axis} : ""
 
 
 
@@ -67,7 +73,107 @@ const SubmitHandler = async(e) => {
             <input placeholder='amount' name="amount" className={Styles.input} defaultValue={orderdetails.amount} onChange={handleChange} />
             <label className={Styles.label}>Remarks</label>
             <input placeholder='remarks' name="remarks" className={Styles.input} defaultValue={orderdetails.remarks} onChange={handleChange} />
-            <label className={Styles.label}>Right Eye SPH</label>
+            
+            
+            <table>
+               <tbody>
+               <tr>
+                    <th>Right Eye</th>
+                    <th>SPH</th>
+                    <th>CYL</th>
+                    <th>AXIS</th>
+               </tr>
+
+               <tr>
+                   <td>Distance</td>
+                   <td>
+                   <input placeholder='re_sph' type='number' name="re_sph" className={Styles.inputCell} defaultValue={val.re_sph} onChange={handleChange} />
+                   </td>
+
+                   <td>
+                   <input placeholder='re_cyl' type='number' name="re_cyl" className={Styles.inputCell} defaultValue={val.re_cyl} onChange={handleChange} />
+                   </td>
+
+                   <td>
+                   <input placeholder='re_axis' type='number' name="re_axis" className={Styles.inputCell} defaultValue={val.re_axis} onChange={handleChange} />
+                   </td>
+                   
+               </tr>
+
+               <tr>
+                   <td>Near</td>
+                   <td>
+                   <input placeholder='re_sph' type='number' name="re_near_sph" className={Styles.inputCell} defaultValue={val.re_near_sph} onChange={handleChange} />  
+                   </td>
+
+
+                   <td>
+                   <input placeholder='re_cyl' type='number' name="re_near_cyl" className={Styles.inputCell} defaultValue={val.re_near_cyl} onChange={handleChange} /> 
+                   </td>
+
+
+                   <td>
+                   <input placeholder='re_axis' type='number' name="re_near_axis" className={Styles.inputCell} defaultValue={val.re_near_axis} onChange={handleChange} />
+                   </td>
+                   
+               </tr>
+               </tbody>
+           </table>
+
+           <table>
+           <tbody>
+               <tr>
+                    <th>Left Eye</th>
+                    <th>SPH</th>
+                    <th>CYL</th>
+                    <th>AXIS</th>
+               </tr>
+
+               <tr>
+                   <td>Distance</td>
+                   <td>
+                   <input placeholder='le_sph' type='number' name="le_sph" className={Styles.inputCell} defaultValue={val.le_sph} onChange={handleChange} />
+                   </td>
+
+                   <td>
+                   <input placeholder='le_cyl' type='number' name="le_cyl" className={Styles.inputCell} defaultValue={val.le_cyl} onChange={handleChange} />
+                   </td>
+
+                   <td>
+                   <input placeholder='le_axis' type='number' name="le_axis" className={Styles.inputCell} defaultValue={val.le_axis} onChange={handleChange} />
+                   </td>
+                   
+               </tr>
+
+               
+               <tr>
+                   <td>Near</td>
+
+                   <td>
+                   <input placeholder='le_sph' type='number' name="le_near_sph" className={Styles.inputCell} defaultValue={val.le_near_sph} onChange={handleChange} />  
+                   </td>
+
+
+                   <td>
+                   <input placeholder='le_cyl' type='number' name="le_near_cyl" className={Styles.inputCell} defaultValue={val.le_near_cyl} onChange={handleChange} /> 
+                   </td>
+
+
+                   <td>
+                   <input placeholder='le_axis' type='number' name="le_near_axis" className={Styles.inputCell} defaultValue={val.le_near_axis} onChange={handleChange} />
+                   </td>
+                   
+               </tr>
+                   
+               
+               </tbody>
+           </table>
+
+            
+            
+            
+            
+            {/* <label className={Styles.label}>Right Eye SPH</label>
             <input placeholder='re_sph' type='number' name="re_sph" className={Styles.input} defaultValue={orderdetails.re_sph} onChange={handleChange} />
             <label className={Styles.label}>Right Eye CYL</label>
             <input placeholder='re_cyl' type='number' name="re_cyl" className={Styles.input} defaultValue={orderdetails.re_cyl} onChange={handleChange} />
@@ -78,7 +184,9 @@ const SubmitHandler = async(e) => {
             <label className={Styles.label}>Left Eye CYL</label>
             <input placeholder='le_cyl' type='number' name="le_cyl" className={Styles.input} defaultValue={orderdetails.le_cyl} onChange={handleChange} />
             <label className={Styles.label}>Left Eye Axis</label>
-            <input placeholder='le_axis' type='number' name="le_axis" className={Styles.input} defaultValue={orderdetails.le_axis} onChange={handleChange} />
+            <input placeholder='le_axis' type='number' name="le_axis" className={Styles.input} defaultValue={orderdetails.le_axis} onChange={handleChange} /> */}
+
+
             <button onClick={SubmitHandler} className={Styles.button} type="submit">Submit</button>
         </form></div>
      

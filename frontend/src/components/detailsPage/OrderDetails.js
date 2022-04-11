@@ -40,12 +40,76 @@ const OrderDetails = ({history,match}) => {
          <p className={Styles.item} >Frame Type:{orderdetails.frame_type}</p>
          <p className={Styles.item} >Amount    :{orderdetails.amount}</p>
          <p className={Styles.item} >Remarks   :{orderdetails.remarks}</p>
-         <p className={Styles.item} >RE SPH    :{orderdetails.re_sph}</p>
-         <p className={Styles.item} >RE AXIS   :{orderdetails.re_axis}</p>
-         <p className={Styles.item} >RE_CYL    :{orderdetails.re_cyl}</p>
-         <p className={Styles.item} >LE_SPH    :{orderdetails.le_sph}</p>
-         <p className={Styles.item} >LE_AXIS   :{orderdetails.le_axis}</p>
-         <p className={Styles.item} >LE_CYL    :{orderdetails.le_cyl}</p>
+         <table>
+           <tbody>
+               <tr>
+                    <th>Right Eye</th>
+                    <th>SPH</th>
+                    <th>CYL</th>
+                    <th>AXIS</th>
+               </tr>
+
+               <tr>
+                   <td>Distance</td>
+                   <td>
+                   {orderdetails.re_sph}
+                   </td>
+
+                   <td>
+                   {orderdetails.re_cyl}
+                   </td>
+
+                   <td>
+                   {orderdetails.re_axis}
+                   </td>
+                   
+               </tr>
+
+               <tr>
+                   <td>Near</td>
+                   <td>{orderdetails.re_near_sph}</td>
+                   <td>{orderdetails.re_near_cyl}</td>
+                   <td>{orderdetails.re_near_axis}</td>
+                   
+               </tr>
+               </tbody>
+           </table>
+
+
+           <table>
+           <tbody>
+               <tr>
+                    <th>Left Eye</th>
+                    <th>SPH</th>
+                    <th>CYL</th>
+                    <th>AXIS</th>
+               </tr>
+
+               <tr>
+                   <td>Distance</td>
+                   <td>
+                   {orderdetails.le_sph}
+                   </td>
+
+                   <td>
+                   {orderdetails.le_cyl}
+                   </td>
+
+                   <td>
+                   {orderdetails.le_axis}
+                   </td>
+                   
+               </tr>
+
+               <tr>
+                   <td>Near</td>
+                   <td>{orderdetails.le_near_sph}</td>
+                   <td>{orderdetails.le_near_cyl}</td>
+                   <td>{orderdetails.le_near_axis}</td>
+                   
+               </tr>
+               </tbody>
+           </table>
         </div>
 
         <div className={Styles.buttonContainer}>

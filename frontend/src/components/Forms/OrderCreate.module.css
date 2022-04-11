@@ -16,12 +16,17 @@
     align-items: flex-start;
 }
 
+.inputCell{
+    width: 100%;
+}
+
 .input{
-   background-color: #F0E9D2;
-   border: none;
-   padding: 10px 20px;
-    width: 80%;
-    margin: 5px auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #F0E9D2;
+    padding: 10px 10px;
+    border: none;
 }
 
 .button{
