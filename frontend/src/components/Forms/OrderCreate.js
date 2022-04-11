@@ -66,6 +66,7 @@ const OrderCreate = ({ history,match }) => {
         history.push("/customer");
     }
     return (
+        <>
         <div className={Styles.Container}>
             <form className={Styles.Form}>
             <input placeholder='lens_type' name="lens_type" className={Styles.input} value={val.lens_type} onChange={handleChange} />
@@ -180,7 +181,15 @@ const OrderCreate = ({ history,match }) => {
             <input placeholder='le_cyl' type='number' name="le_cyl" className={Styles.input} value={val.le_cyl} onChange={handleChange} />
             <input placeholder='le_axis' type='number' name="le_axis" className={Styles.input} value={val.le_axis} onChange={handleChange} /> */}
             <button onClick={handleClick} className={Styles.button} type="submit">Submit</button>
-        </form></div>
+        </form>
+
+        
+        </div>
+        
+        </>
+
+
+
     )
 }
 
