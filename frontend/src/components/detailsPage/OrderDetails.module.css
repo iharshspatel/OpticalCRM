@@ -1,4 +1,4 @@
-.item{
+.item {
     background-color: #F0E9D2;
     padding: 10px 20px;
     text-align: center;
@@ -6,18 +6,21 @@
     font-weight: 600;
 }
 
+.container {
+    padding: 10px;
+}
 
-.buttonContainer{
+.buttonContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.button{
+.button {
     border: none;
-    background-color:#678983 ;
-    color:white ;
+    background-color: #678983;
+    color: white;
     padding: 10px 10px;
     border-radius: 20px;
     width: 100%;
