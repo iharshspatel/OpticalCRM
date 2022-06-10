@@ -17,13 +17,13 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-if(process.env.NODE_ENV!=="PRODUCTION"){
+if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config({ path: "backend/config/config.env" });
 }
 const port = process.env.PORT || 3000;
 
 
-mongoose.connect(process.env.DBPATH, { useNewUrlParser: true }).then(()=>{
+mongoose.connect(process.env.DBPATH, { useNewUrlParser: true }).then(() => {
   console.log(`Database is Connected at ${process.env.DBPATH} `)
 });
 
@@ -35,9 +35,9 @@ app.use("/api", customer);
 app.use("/api", order);
 app.use("/api", client);
 app.use(errorMiddleware);
-app.use(express.static(path.join(__dirname,"../frontend/build")))
-app.get("*",(req,res)=>{
-  res.sendFile(path.resolve(__dirname,"../frontend/build/index.html"))
+app.use(express.static(path.join(__dirname, "../frontend/build")))
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
 })
 
 // Handling Uncaught Exception
