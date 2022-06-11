@@ -36,9 +36,9 @@ app.use("/api", order);
 app.use("/api", client);
 app.use(errorMiddleware);
 app.use(express.static(path.join(__dirname, "../frontend/build")))
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
-})
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"))
+// })
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
