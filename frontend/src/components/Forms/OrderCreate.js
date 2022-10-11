@@ -38,6 +38,7 @@ const OrderCreate = ({ history, match }) => {
         lens_type: "",
         frame_type: "",
         amount: "",
+        quantity: "",
         remarks: "",
         re_sph: "",
         re_cyl: "",

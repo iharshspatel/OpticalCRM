@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Styles from './Customer.module.css'
 import { Redirect, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
-import { createOrder } from "../../actions/customerAction"
+import { createOrder, getOneCustomer } from "../../actions/customerAction"
 const current = new Date();
 const month = current.toLocaleString('default', { month: 'long' });
 const date = `${current.getDate()} ${month} ${current.getFullYear()}`;
@@ -22,7 +22,8 @@ const Customer = ({ index, customer, history }) => {
     }
 
     const orderHandler = (or) => {
-        history.push(`/order/${or.Order}`)
+        // dispatch(getOneCustomer(customer._id));
+        history.push(`/order/${or.Order}/${customer._id}`)
     }
     return <div className={Styles.customerCard}>
 
